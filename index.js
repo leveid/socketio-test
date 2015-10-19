@@ -9,6 +9,10 @@ app.get('/', function (req, res) {
 io.on('connect', function (socket) {
 	console.log('a user connected');
 
+	socket.on('message', function(msg) {
+		console.log('a new message: ' + msg);
+	});
+
 	socket.on('disconnect', function () {
 		console.log('a user disconnected');
 	});
